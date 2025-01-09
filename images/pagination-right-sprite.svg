@@ -1,0 +1,24 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 138 46" width="138" height="46">
+	<title>pagination-right-sprite-svg</title>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: #343a40;stroke: #343a40;stroke-width: 1.5 } 
+		.shp1 { fill: #ffffff } 
+		.shp2 { fill: #343a40 } 
+		.shp3 { fill: none;stroke: #343a40 } 
+		.shp4 { opacity: 0.102;fill: #343a40;stroke: #343a40 } 
+	</style>
+	<g id="Folder 3">
+		<path id="Layer" class="shp0" d="M115 45.2C127.28 45.2 137.2 35.28 137.2 23C137.2 10.72 127.28 0.8 115 0.8C102.72 0.8 92.8 10.72 92.8 23C92.8 35.28 102.72 45.2 115 45.2Z" />
+		<path id="Layer" fill-rule="evenodd" class="shp1" d="M118.6 23L111.3 30.3L112.7 31.7L121.4 23L112.7 14.3L111.3 15.7L118.6 23Z" />
+	</g>
+	<g id="Folder 2">
+		<path id="Layer" fill-rule="evenodd" class="shp2" d="M26.59 23L19.29 30.29L20.71 31.71L29.41 23L20.71 14.29L19.29 15.71L26.59 23Z" />
+		<path id="Layer" class="shp3" d="M23 45.5C35.44 45.5 45.5 35.44 45.5 23C45.5 10.56 35.44 0.5 23 0.5C10.56 0.5 0.5 10.56 0.5 23C0.5 35.44 10.56 45.5 23 45.5Z" />
+	</g>
+	<g id="Folder 1">
+		<path id="Layer" fill-rule="evenodd" class="shp2" d="M72.6 23L65.3 30.3L66.7 31.7L75.4 23L66.7 14.3L65.3 15.7L72.6 23Z" />
+		<path id="Layer" class="shp4" d="M69 45.5C81.44 45.5 91.5 35.44 91.5 23C91.5 10.56 81.44 0.5 69 0.5C56.56 0.5 46.5 10.56 46.5 23C46.5 35.44 56.56 45.5 69 45.5Z" />
+		<path id="Layer copy" class="shp3" d="M69 45.5C81.44 45.5 91.5 35.44 91.5 23C91.5 10.56 81.44 0.5 69 0.5C56.56 0.5 46.5 10.56 46.5 23C46.5 35.44 56.56 45.5 69 45.5Z" />
+	</g>
+</svg>

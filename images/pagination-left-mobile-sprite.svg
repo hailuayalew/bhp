@@ -1,0 +1,22 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 72" width="144" height="72">
+	<title>mobile-right-light-svg</title>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: #ffffff } 
+		.shp1 { fill: none;stroke: #f2f4f5 } 
+		.shp2 { fill: #343a40 } 
+	</style>
+	<g id="Folder 2">
+	</g>
+	<g id="Folder 1">
+		<g id="Layer">
+			<path id="Layer" class="shp0" d="M36 20C27.15 20 20 27.15 20 36C20 44.85 27.15 52 36 52C44.85 52 52 44.85 52 36C52 27.15 44.85 20 36 20Z" />
+			<path id="Layer" class="shp1" d="M36 20.5C27.43 20.5 20.5 27.43 20.5 36C20.5 44.57 27.43 51.5 36 51.5C44.57 51.5 51.5 44.57 51.5 36C51.5 27.43 44.57 20.5 36 20.5Z" />
+		</g>
+		<path id="Layer" fill-rule="evenodd" class="shp2" d="M31.41 36L38.71 28.71L37.29 27.29L28.59 36L37.29 44.71L38.71 43.29L31.41 36Z" />
+	</g>
+	<g id="Folder 1">
+		<path id="Layer" class="shp2" d="M108 20C99.15 20 92 27.15 92 36C92 44.85 99.15 52 108 52C116.85 52 124 44.85 124 36C124 27.15 116.85 20 108 20Z" />
+		<path id="Layer" fill-rule="evenodd" class="shp0" d="M103.41 36L110.71 28.71L109.29 27.29L100.59 36L109.29 44.71L110.71 43.29L103.41 36Z" />
+	</g>
+</svg>
