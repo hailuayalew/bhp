@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'Graphik';
+    font-display: swap;
+    src: url('../fonts/graphik-regular-web-eot.eot');
+    src: url('../fonts/graphik-regular-web-eot.eot#iefix') format('embedded-opentype'), url('../fonts/graphik-regular-web-woff.woff') format('woff'), url('../fonts/graphik-regular-web-ttf.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Graphik Bold';
+    font-display: swap;
+    src: url('../fonts/graphik-bold-web-eot.eot');
+    src: url('../fonts/graphik-bold-web-eot.eot#iefix') format('embedded-opentype'), url('../fonts/graphik-bold-web-woff.woff') format('woff'), url('../fonts/graphik-bold-web-ttf.ttf') format('truetype');
+}
+  
+@font-face {
+    font-family: 'Graphik SemiBold';
+    font-display: swap;
+    src: url('/-/media/themes/bhp1ip/bhp1ip-en/bhp1ip-en/fonts/graphik/graphik-semibold-web-web.eot');
+    src: url('../fonts/graphik-semibold-web-eot.eot#iefix') format('embedded-opentype'), url('../fonts/graphik-semibold-web-woff.woff') format('woff'), url('../fonts/graphik-semibold-web-ttf.ttf') format('truetype');
+}
+
+$font-normal: 'Graphik',Arial, Helvetica, sans-serif;
+$font-Bold: 'Graphik Bold', Arial, Helvetica, sans-serif;
+$font-semi-bold: 'Graphik SemiBold', Arial, Helvetica, sans-serif;
+
