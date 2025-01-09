@@ -1,0 +1,10 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 40" width="80" height="40">
+	<title>Search-svg</title>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: #dd5900 } 
+		.shp1 { fill: #ffffff } 
+	</style>
+	<path id="Layer" fill-rule="evenodd" class="shp0" d="M18 26C13.58 26 10 22.42 10 18C10 13.58 13.58 10 18 10C22.42 10 26 13.58 26 18C26 19.85 25.37 21.55 24.32 22.91L29.71 28.29L28.29 29.71L22.91 24.32C21.55 25.37 19.85 26 18 26ZM18 12C14.69 12 12 14.69 12 18C12 21.31 14.69 24 18 24C21.31 24 24 21.31 24 18C24 14.69 21.31 12 18 12Z" />
+	<path id="Layer copy" fill-rule="evenodd" class="shp1" d="M58 26C53.58 26 50 22.42 50 18C50 13.58 53.58 10 58 10C62.42 10 66 13.58 66 18C66 19.85 65.37 21.55 64.32 22.91L69.71 28.29L68.29 29.71L62.91 24.32C61.55 25.37 59.85 26 58 26ZM58 12C54.69 12 52 14.69 52 18C52 21.31 54.69 24 58 24C61.31 24 64 21.31 64 18C64 14.69 61.31 12 58 12Z" />
+</svg>
