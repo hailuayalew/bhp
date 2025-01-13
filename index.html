@@ -281,22 +281,35 @@
             
             <label for="fullName">Full Name:</label>
             <input type="text" id="fullName" name="fullName" required><br><br>
-		 <label for="photo">Choose a photo:</label>
+	 <form id="photoUploadForm">
+    <label for="photo">Choose a photo:</label>
     <input type="file" id="photo" name="photo" accept="image/*" required>
-		<img id="preview" src="#" alt="Photo Preview" style="display: none; max-width: 200px; height: auto;">
-    <br><br>   <script>
+    <br><br>
+    <!-- Preview Image -->
+    <img id="preview" src="#" alt="Photo Preview" style="display: none; max-width: 200px; height: auto;">
+    <br><br>
+  </form>    <script>
+    // Get input and preview elements
     const photoInput = document.getElementById('photo');
     const preview = document.getElementById('preview');
 
+    // Add event listener for input change
     photoInput.addEventListener('change', function (event) {
-      const file = event.target.files[0];
+      const file = event.target.files[0]; // Get the selected file
+
       if (file) {
-        const reader = new FileReader();
+        const reader = new FileReader(); // Create a FileReader instance
+
+        // When the file is read, set the preview image source
         reader.onload = function (e) {
-          preview.src = e.target.result;
-          preview.style.display = 'block';
+          preview.src = e.target.result; // Set the image source to the file data
+          preview.style.display = 'block'; // Show the preview
         };
-        reader.readAsDataURL(file);
+
+        reader.readAsDataURL(file); // Read the file as a data URL
+      } else {
+        preview.src = '#'; // Reset the preview source
+        preview.style.display = 'none'; // Hide the preview if no file is selected
       }
     });
   </script>
