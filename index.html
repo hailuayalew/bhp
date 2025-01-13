@@ -249,6 +249,11 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+		form {
+        margin-left: 5%; /* Add slight space on smaller screens */
+        margin-right: 5%; /* Prevent form from sticking to the edges */
+        padding: 15px; /* Reduce padding slightly for tablets */
+    }
             h1 {
                 font-size: 20px;
             }
@@ -271,6 +276,11 @@
         }
 
         @media (max-width: 480px) {
+		    form {
+        margin-left: 3%; /* Narrower left margin on small phones */
+        margin-right: 3%; /* Narrower right margin */
+        padding: 10px; /* Compact padding for small mobile devices */
+    }
             h1 {
                 font-size: 18px;
             }
