@@ -234,6 +234,20 @@
             background-color: #45a049;
         }
 
+        /* Success message styling */
+        .success-message {
+            display: none;
+            text-align: center;
+            font-size: 18px;
+            margin-top: 20px;
+            color: #4CAF50;
+        }
+
+        .timer {
+            font-size: 20px;
+            color: #d9534f;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             form {
@@ -266,7 +280,7 @@
 </head>
 <body>
     <h1>Personal Information Form</h1>
-    <form action="#" method="post">
+    <form id="infoForm" action="#" method="post">
         <fieldset>
             <legend>Personal Information</legend>
             
@@ -327,8 +341,44 @@
             <input type="tel" id="relativePhoneNumber" name="relativePhoneNumber" required><br><br>
         </fieldset>
 
-        <button type="submit">Submit</button>
+        <button type="button" onclick="submitForm()">Submit</button>
     </form>
+
+    <div class="success-message" id="successMessage">
+        <p>Form submitted successfully! For further inquiries, call us at <strong>0935351244</strong>.</p>
+        <p>Time remaining: <span class="timer" id="countdown">03:00</span></p>
+    </div>
+
+    <script>
+        function submitForm() {
+            // Show success message
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // Initialize countdown timer (3 minutes)
+            var timer = 180; // 3 minutes in seconds
+            var countdownElement = document.getElementById('countdown');
+
+            var interval = setInterval(function() {
+                var minutes = Math.floor(timer / 60);
+                var seconds = timer % 60;
+
+                // Format the timer to always display two digits
+                countdownElement.textContent = (minutes < 10 ? '0' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+
+                // Decrement the timer
+                timer--;
+
+                // Stop the timer when it reaches 0
+                if (timer < 0) {
+                    clearInterval(interval);
+                    countdownElement.textContent = "Time's up!";
+                }
+            }, 1000);
+
+            // Prevent form submission (for demonstration purposes)
+            return false;
+        }
+    </script>
 <div class="card"> 
 
 
