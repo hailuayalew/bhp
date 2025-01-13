@@ -174,15 +174,16 @@
             font-size: 24px;
         }
 
-        form {
-            width: 90%; /* Use flexible width */
-            max-width: 600px; /* Constrain maximum width */
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
+       form {
+    width: 100%; /* Ensure it uses full width on smaller screens */
+    max-width: 600px; /* Still constrain maximum width for larger screens */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Include padding in the width calculation */
+}
 
         fieldset {
             border: 2px solid #ccc;
