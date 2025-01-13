@@ -162,7 +162,7 @@
         <div class="row content-tiles-three-up">
             <div class="col-lg-4"> <div class="row">    <div class="component content-tile col-12">
         <div class="component-content">
-  <title>Form Example</title>
+     <title>User Registration</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -227,18 +227,28 @@
             event.preventDefault(); // Prevent form from reloading the page
             const message = document.getElementById('message');
             message.style.display = 'block';
+            message.textContent = 'Registration Successful!';
         }
     </script>
 </head>
 <body>
 
-<h1>Contact Form</h1>
+<h1>User Registration</h1>
 <form onsubmit="handleSubmit(event)">
     <label for="firstName">First Name:</label>
     <input type="text" id="firstName" name="firstName" required>
 
     <label for="lastName">Last Name:</label>
     <input type="text" id="lastName" name="lastName" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <label for="confirmPassword">Confirm Password:</label>
+    <input type="password" id="confirmPassword" name="confirmPassword" required>
 
     <label for="age">Age:</label>
     <input type="number" id="age" name="age" required>
@@ -251,11 +261,10 @@
         <option value="other">Other</option>
     </select>
 
-    <button type="submit">Submit</button>
+    <button type="submit">Register</button>
 </form>
 
 <div id="message" class="message">
-    Call 0957658676
 </div>
 <div class="card"> 
 
