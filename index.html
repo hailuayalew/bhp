@@ -157,7 +157,7 @@
         <div class="row content-tiles-three-up">
             <div class="col-lg-4"> <div class="row">    <div class="component content-tile col-12">
         <div class="component-content">
- <title>Personal Information Form</title>
+    <title>Personal Information Form</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -228,13 +228,51 @@
             background-color: #45a049;
         }
 
-        /* Success message styling */
-        .success-message {
+        /* Modal Styles */
+        .modal {
             display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
             text-align: center;
-            font-size: 18px;
-            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-content h2 {
             color: #4CAF50;
+            margin-bottom: 15px;
+        }
+
+        .modal-content p {
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .close-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .close-btn:hover {
+            background-color: #45a049;
         }
 
         /* Responsive Design */
@@ -272,80 +310,78 @@
     <form id="infoForm" action="#" method="post">
         <fieldset>
             <legend>Personal Information</legend>
-            
+            <!-- Personal Information Fields -->
             <label for="fullName">Full Name:</label>
-            <input type="text" id="fullName" name="fullName" required><br><br>
-            
+            <input type="text" id="fullName" name="fullName" required>
             <label for="age">Age:</label>
-            <input type="number" id="age" name="age" required><br><br>
-            
+            <input type="number" id="age" name="age" required>
             <label for="sex">Sex:</label>
             <select id="sex" name="sex" required>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
                 <option value="other">Other</option>
-            </select><br><br>
-            
+            </select>
             <label for="height">Height (in cm):</label>
-            <input type="number" id="height" name="height" required><br><br>
-            
+            <input type="number" id="height" name="height" required>
             <label for="weight">Weight (in kg):</label>
-            <input type="number" id="weight" name="weight" required><br><br>
-            
+            <input type="number" id="weight" name="weight" required>
             <label for="residenceAddress">Residence Address:</label>
-            <input type="text" id="residenceAddress" name="residenceAddress" required><br><br>
-            
+            <input type="text" id="residenceAddress" name="residenceAddress" required>
             <label for="kebele">Kebele:</label>
-            <input type="text" id="kebele" name="kebele" required><br><br>
-            
+            <input type="text" id="kebele" name="kebele" required>
             <label for="dob">Date of Birth:</label>
-            <input type="date" id="dob" name="dob" required><br><br>
-            
+            <input type="date" id="dob" name="dob" required>
             <label for="nationality">Nationality:</label>
-            <input type="text" id="nationality" name="nationality" required><br><br>
-            
+            <input type="text" id="nationality" name="nationality" required>
             <label for="phoneNumber">Phone Number:</label>
-            <input type="tel" id="phoneNumber" name="phoneNumber" required><br><br>
-            
+            <input type="tel" id="phoneNumber" name="phoneNumber" required>
             <label for="formDate">Date of Form Fill:</label>
-            <input type="date" id="formDate" name="formDate" required><br><br>
+            <input type="date" id="formDate" name="formDate" required>
         </fieldset>
 
         <fieldset>
             <legend>Next of Kin / Relative Information</legend>
-            
+            <!-- Relative Information Fields -->
             <label for="relativeName">Relative's Name:</label>
-            <input type="text" id="relativeName" name="relativeName" required><br><br>
-            
+            <input type="text" id="relativeName" name="relativeName" required>
             <label for="relativeAddress">Relative's Address:</label>
-            <input type="text" id="relativeAddress" name="relativeAddress" required><br><br>
-            
+            <input type="text" id="relativeAddress" name="relativeAddress" required>
             <label for="district">District:</label>
-            <input type="text" id="district" name="district" required><br><br>
-            
+            <input type="text" id="district" name="district" required>
             <label for="relativeKebele">Relative's Kebele:</label>
-            <input type="text" id="relativeKebele" name="relativeKebele" required><br><br>
-            
+            <input type="text" id="relativeKebele" name="relativeKebele" required>
             <label for="relativePhoneNumber">Relative's Phone Number:</label>
-            <input type="tel" id="relativePhoneNumber" name="relativePhoneNumber" required><br><br>
+            <input type="tel" id="relativePhoneNumber" name="relativePhoneNumber" required>
         </fieldset>
 
         <button type="button" onclick="submitForm()">Submit</button>
     </form>
 
-    <div class="success-message" id="successMessage">
-        <p>Form submitted successfully!<br/> Please call us at <strong><a href="tel:09-10-22-06-24" class="text-decoration-none">09-10-22-06-24</a></strong>.</p>
+    <!-- Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <h2>Registration Successful!</h2>
+            <p>Thank you for submitting your information.<br> For inquiries, call us at:</p>
+            <p><strong><a href="tel:09-10-22-06-24" style="text-decoration: none; color: #4CAF50;">09-10-22-06-24</a></strong></p>
+            <button class="close-btn" onclick="closeModal()">Close</button>
+        </div>
     </div>
 
     <script>
         function submitForm() {
-            // Display the success message
-            const successMessage = document.getElementById("successMessage");
-            successMessage.style.display = "block";
-
-            // Clear the form
+            // Hide the form
             const form = document.getElementById("infoForm");
-            form.reset();
+            form.style.display = "none";
+
+            // Show the modal
+            const modal = document.getElementById("successModal");
+            modal.style.display = "flex";
+        }
+
+        function closeModal() {
+            // Close the modal
+            const modal = document.getElementById("successModal");
+            modal.style.display = "none";
         }
     </script>
 <div class="card"> 
