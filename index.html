@@ -358,7 +358,26 @@
     </form>
 
     <!-- Modal -->
- <div class="modal" id="successModal">
+<div class="modal" id="successModal" 
+     style="position: relative; 
+            padding: 20px; 
+            max-width: 400px; 
+            margin: 50px auto; 
+            background-color: white; 
+            border-radius: 10px; 
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);">
+    <!-- Close button at the top right -->
+    <span onclick="closeModal()" 
+          style="position: absolute; 
+                 top: 10px; 
+                 right: 15px; 
+                 font-size: 20px; 
+                 font-weight: bold; 
+                 color: #4CAF50; 
+                 cursor: pointer;">
+        &times;
+    </span>
+
     <div class="modal-content">
         <h2>Registration Successful!</h2>
         <p>Thank you for submitting your information.<br> For inquiries, call us at:</p>
@@ -395,6 +414,7 @@
         </a>
     </div>
 </div>
+
 
 
 
