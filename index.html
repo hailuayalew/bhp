@@ -157,7 +157,7 @@
         <div class="row content-tiles-three-up">
             <div class="col-lg-4"> <div class="row">    <div class="component content-tile col-12">
         <div class="component-content">
-		    <title>Personal Information Form</title>
+	<title>Personal Information Form</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -358,8 +358,21 @@
     </form>
 
     <!-- Modal -->
-    <div class="modal" id="successModal">
-        <div class="modal-content">
+    <div class="modal" id="successModal" style="position: relative;">
+    <div class="modal-content" style="position: relative; padding: 20px; border: 1px solid #ddd; border-radius: 5px; background: #fff;">
+        <!-- Close Button -->
+        <button id="closeModalButton" 
+                style="position: absolute; 
+                       top: 10px; 
+                       right: 10px; 
+                       background: none; 
+                       border: none; 
+                       font-size: 20px; 
+                       font-weight: bold; 
+                       cursor: pointer; 
+                       color: #333;">
+            &times;
+        </button>
             <h2>Registration Successful!</h2>
             <p>Thank you for submitting your information.<br> For inquiries, call us at:</p>
             <p>
@@ -442,6 +455,9 @@
             const modal = document.getElementById("successModal");
             modal.style.display = "none";
         }
+	     document.getElementById('closeModalButton').addEventListener('click', function() {
+        document.getElementById('successModal').style.display = 'none';
+    });
     </script>
 <div class="card"> 
 
