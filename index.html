@@ -397,45 +397,55 @@
     </div>
 
     <script>
-        function submitForm() {
-            const form = document.getElementById("infoForm");
+  function submitForm() {
+    const form = document.getElementById("infoForm");
 
-            // Validate form inputs
-            const fullName = document.getElementById("fullName").value;
-            const age = document.getElementById("age").value;
-            const phoneNumber = document.getElementById("phoneNumber").value;
-            const relativePhoneNumber = document.getElementById("relativePhoneNumber").value;
+    // Collect form inputs
+    const inputs = form.querySelectorAll("input, select");
+    let isValid = true;
 
-            // Validate Full Name
-            if (fullName.trim() === "") {
-                alert("Full Name is required.");
-                return;
-            }
-
-            // Validate Age
-            if (age < 1 || age > 120) {
-                alert("Please enter a valid age.");
-                return;
-            }
-
-            // Validate Phone Number (basic check)
-            const phoneRegex = /^[0-9]{10}$/;
-            if (!phoneRegex.test(phoneNumber)) {
-                alert("Please enter a valid phone number.");
-                return;
-            }
-
-            // Validate Relative Phone Number (basic check)
-            if (!phoneRegex.test(relativePhoneNumber)) {
-                alert("Please enter a valid relative's phone number.");
-                return;
-            }
-
-            // If validation passes, hide form and show modal
-            form.style.display = "none";
-            const modal = document.getElementById("successModal");
-            modal.style.display = "flex";
+    // Validate each input
+    inputs.forEach((input) => {
+        if (input.value.trim() === "") {
+            alert(`${input.previousElementSibling.innerText} is required.`);
+            input.focus();
+            isValid = false;
+            return false; // Breaks out of the loop
         }
+    });
+
+    // Stop further validation if any field is invalid
+    if (!isValid) return;
+
+    // Additional Validations
+    const age = document.getElementById("age").value;
+    const phoneNumber = document.getElementById("phoneNumber").value;
+    const relativePhoneNumber = document.getElementById("relativePhoneNumber").value;
+
+    // Validate Age
+    if (age < 1 || age > 120) {
+        alert("Please enter a valid age.");
+        return;
+    }
+
+    // Validate Phone Number (basic check)
+    const phoneRegex = /^[0-9]{10}$/;
+    if (!phoneRegex.test(phoneNumber)) {
+        alert("Please enter a valid phone number.");
+        return;
+    }
+
+    // Validate Relative Phone Number (basic check)
+    if (!phoneRegex.test(relativePhoneNumber)) {
+        alert("Please enter a valid relative's phone number.");
+        return;
+    }
+
+    // If all validations pass, hide form and show modal
+    form.style.display = "none";
+    const modal = document.getElementById("successModal");
+    modal.style.display = "flex";
+}
 
         function closeModal() {
             // Close the modal
