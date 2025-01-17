@@ -397,47 +397,125 @@
     </div>
 
     <script>
-  function submitForm() {
+function submitForm() {
     const form = document.getElementById("infoForm");
 
-    // Collect form inputs
-    const inputs = form.querySelectorAll("input, select");
-    let isValid = true;
+    // Collect individual fields
+    const fullName = document.getElementById("fullName").value.trim();
+    const age = document.getElementById("age").value.trim();
+    const sex = document.getElementById("sex").value;
+    const height = document.getElementById("height").value.trim();
+    const weight = document.getElementById("weight").value.trim();
+    const residenceAddress = document.getElementById("residenceAddress").value.trim();
+    const kebele = document.getElementById("kebele").value.trim();
+    const dob = document.getElementById("dob").value;
+    const nationality = document.getElementById("nationality").value.trim();
+    const phoneNumber = document.getElementById("phoneNumber").value.trim();
+    const formDate = document.getElementById("formDate").value;
 
-    // Validate each input
-    inputs.forEach((input) => {
-        if (input.value.trim() === "") {
-            alert(`${input.previousElementSibling.innerText} is required.`);
-            input.focus();
-            isValid = false;
-            return false; // Breaks out of the loop
-        }
-    });
+    const relativeName = document.getElementById("relativeName").value.trim();
+    const relativeAddress = document.getElementById("relativeAddress").value.trim();
+    const district = document.getElementById("district").value.trim();
+    const relativeKebele = document.getElementById("relativeKebele").value.trim();
+    const relativePhoneNumber = document.getElementById("relativePhoneNumber").value.trim();
 
-    // Stop further validation if any field is invalid
-    if (!isValid) return;
-
-    // Additional Validations
-    const age = document.getElementById("age").value;
-    const phoneNumber = document.getElementById("phoneNumber").value;
-    const relativePhoneNumber = document.getElementById("relativePhoneNumber").value;
-
-    // Validate Age
-    if (age < 1 || age > 120) {
-        alert("Please enter a valid age.");
-        return;
-    }
-
-    // Validate Phone Number (basic check)
+    // Phone number regex for basic validation
     const phoneRegex = /^[0-9]{10}$/;
-    if (!phoneRegex.test(phoneNumber)) {
-        alert("Please enter a valid phone number.");
+
+    // Validation checks for each field with user-friendly error messages
+    if (!fullName) {
+        alert("Full Name is required.");
+        document.getElementById("fullName").focus();
         return;
     }
 
-    // Validate Relative Phone Number (basic check)
-    if (!phoneRegex.test(relativePhoneNumber)) {
-        alert("Please enter a valid relative's phone number.");
+    if (!age || age < 1 || age > 120) {
+        alert("Please enter a valid age between 1 and 120.");
+        document.getElementById("age").focus();
+        return;
+    }
+
+    if (!sex) {
+        alert("Please select your sex.");
+        document.getElementById("sex").focus();
+        return;
+    }
+
+    if (!height || height <= 0) {
+        alert("Please enter a valid height.");
+        document.getElementById("height").focus();
+        return;
+    }
+
+    if (!weight || weight <= 0) {
+        alert("Please enter a valid weight.");
+        document.getElementById("weight").focus();
+        return;
+    }
+
+    if (!residenceAddress) {
+        alert("Residence Address is required.");
+        document.getElementById("residenceAddress").focus();
+        return;
+    }
+
+    if (!kebele) {
+        alert("Kebele is required.");
+        document.getElementById("kebele").focus();
+        return;
+    }
+
+    if (!dob) {
+        alert("Date of Birth is required.");
+        document.getElementById("dob").focus();
+        return;
+    }
+
+    if (!nationality) {
+        alert("Nationality is required.");
+        document.getElementById("nationality").focus();
+        return;
+    }
+
+    if (!phoneNumber || !phoneRegex.test(phoneNumber)) {
+        alert("Please enter a valid 10-digit phone number.");
+        document.getElementById("phoneNumber").focus();
+        return;
+    }
+
+    if (!formDate) {
+        alert("Date of Form Fill is required.");
+        document.getElementById("formDate").focus();
+        return;
+    }
+
+    if (!relativeName) {
+        alert("Relative's Name is required.");
+        document.getElementById("relativeName").focus();
+        return;
+    }
+
+    if (!relativeAddress) {
+        alert("Relative's Address is required.");
+        document.getElementById("relativeAddress").focus();
+        return;
+    }
+
+    if (!district) {
+        alert("District is required.");
+        document.getElementById("district").focus();
+        return;
+    }
+
+    if (!relativeKebele) {
+        alert("Relative's Kebele is required.");
+        document.getElementById("relativeKebele").focus();
+        return;
+    }
+
+    if (!relativePhoneNumber || !phoneRegex.test(relativePhoneNumber)) {
+        alert("Please enter a valid 10-digit relative's phone number.");
+        document.getElementById("relativePhoneNumber").focus();
         return;
     }
 
@@ -446,6 +524,7 @@
     const modal = document.getElementById("successModal");
     modal.style.display = "flex";
 }
+
 
         function closeModal() {
             // Close the modal
