@@ -359,13 +359,30 @@
 
     <!-- Modal -->
     <div class="modal" id="successModal">
-        <div class="modal-content">
-            <h2>Registration Successful!</h2>
-            <p>Thank you for submitting your information.<br> For inquiries, call us at:</p>
-            <p><strong><a href="tel:09-10-22-06-24" style="text-decoration: none; color: #4CAF50;">09-10-22-06-24</a></strong></p>
-            <button class="close-btn" onclick="closeModal()">Close</button>
-        </div>
+    <div class="modal-content">
+        <h2>Registration Successful!</h2>
+        <p>Thank you for submitting your information.<br> For inquiries, call us at:</p>
+        <p>
+            <strong>
+                <a href="tel:09-10-22-06-24" 
+                   style="text-decoration: none; 
+                          color: #4CAF50; 
+                          font-weight: bold; 
+                          font-size: 16px; 
+                          padding: 5px 10px; 
+                          border: 1px solid #4CAF50; 
+                          border-radius: 5px; 
+                          background-color: #f9f9f9; 
+                          display: inline-block; 
+                          text-align: center;">
+                    09-10-22-06-24
+                </a>
+            </strong>
+        </p>
+        <button class="close-btn" onclick="closeModal()">Close</button>
     </div>
+</div>
+
 
     <script>
         function submitForm() {
