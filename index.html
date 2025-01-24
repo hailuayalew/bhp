@@ -322,69 +322,69 @@
     }
 </style>
 
-<script>
-    // Function to handle form submission and modal display
-    function submitForm() {
-        const form = document.getElementById("infoForm");
+    <script>
+        // Function to handle form submission and modal display
+        function submitForm() {
+            const form = document.getElementById("infoForm");
 
-        // Collect form data
-        const fullName = document.getElementById("fullName").value.trim();
-        const age = document.getElementById("age").value.trim();
-        const sex = document.getElementById("sex").value;
-        const height = document.getElementById("height").value.trim();
-        const weight = document.getElementById("weight").value.trim();
-        const residenceAddress = document.getElementById("residenceAddress").value.trim();
-        const kebele = document.getElementById("kebele").value.trim();
-        const dob = document.getElementById("dob").value;
-        const nationality = document.getElementById("nationality").value.trim();
-        const phoneNumber = document.getElementById("phoneNumber").value.trim();
-        const formDate = document.getElementById("formDate").value;
+            // Collect form data
+            const fullName = document.getElementById("fullName").value.trim();
+            const age = document.getElementById("age").value.trim();
+            const sex = document.getElementById("sex").value;
+            const height = document.getElementById("height").value.trim();
+            const weight = document.getElementById("weight").value.trim();
+            const residenceAddress = document.getElementById("residenceAddress").value.trim();
+            const kebele = document.getElementById("kebele").value.trim();
+            const dob = document.getElementById("dob").value;
+            const nationality = document.getElementById("nationality").value.trim();
+            const phoneNumber = document.getElementById("phoneNumber").value.trim();
+            const formDate = document.getElementById("formDate").value;
 
-        const relativeName = document.getElementById("relativeName").value.trim();
-        const relativeAddress = document.getElementById("relativeAddress").value.trim();
-        const district = document.getElementById("district").value.trim();
-        const relativeKebele = document.getElementById("relativeKebele").value.trim();
-        const relativePhoneNumber = document.getElementById("relativePhoneNumber").value.trim();
+            const relativeName = document.getElementById("relativeName").value.trim();
+            const relativeAddress = document.getElementById("relativeAddress").value.trim();
+            const district = document.getElementById("district").value.trim();
+            const relativeKebele = document.getElementById("relativeKebele").value.trim();
+            const relativePhoneNumber = document.getElementById("relativePhoneNumber").value.trim();
 
-        // Phone number regex for basic validation
-        const phoneRegex = /^[0-9]{10}$/;
+            // Phone number regex for basic validation
+            const phoneRegex = /^[0-9]{10}$/;
 
-        // Validation checks
-        if (!fullName || !age || age < 1 || age > 120 || !sex || !height || height <= 0 || !weight || weight <= 0 || !residenceAddress || !kebele || !dob || !nationality || !phoneNumber || !phoneRegex.test(phoneNumber) || !formDate || !relativeName || !relativeAddress || !district || !relativeKebele || !relativePhoneNumber || !phoneRegex.test(relativePhoneNumber)) {
-            alert("Please fill all fields correctly.");
-            return;
+            // Validation checks
+            if (!fullName || !age || age < 1 || age > 120 || !sex || !height || height <= 0 || !weight || weight <= 0 || !residenceAddress || !kebele || !dob || !nationality || !phoneNumber || !phoneRegex.test(phoneNumber) || !formDate || !relativeName || !relativeAddress || !district || !relativeKebele || !relativePhoneNumber || !phoneRegex.test(relativePhoneNumber)) {
+                alert("Please fill all fields correctly.");
+                return;
+            }
+
+            // If all validations pass, hide the form and show modal with progress bar
+            form.style.display = "none";
+            const modal = document.getElementById("successModal");
+            modal.style.display = "flex";
+
+            const progressBar = document.getElementById("progressBar");
+            let progress = 0;
+
+            // Update progress bar to fill in 5 seconds
+            const interval = setInterval(() => {
+                progress += 2; // Increase progress by 2% every 100ms (so 50 updates in 5 seconds)
+                progressBar.style.width = `${progress}%`;
+
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    // Wait 5 seconds after progress completes
+                    setTimeout(() => {
+                        modal.style.display = "none";  // Hide the modal
+                        document.getElementById("successMessage").style.display = "block"; // Show success message
+                    }, 5000); // Wait for 5 seconds after progress bar reaches 100%
+                }
+            }, 100); // Update every 100ms
         }
 
-        // If all validations pass, hide the form and show modal with progress bar
-        form.style.display = "none";
-        const modal = document.getElementById("successModal");
-        modal.style.display = "flex";
-
-        const progressBar = document.getElementById("progressBar");
-        let progress = 0;
-
-        // Update progress bar to fill in 5 seconds
-        const interval = setInterval(() => {
-            progress += 2; // Increase progress by 2% every 100ms (so 50 updates in 5 seconds)
-            progressBar.style.width = `${progress}%`;
-
-            if (progress >= 100) {
-                clearInterval(interval);
-                // Wait 5 seconds after progress completes
-                setTimeout(() => {
-                    modal.style.display = "none";  // Hide the modal
-                    document.getElementById("successMessage").style.display = "block"; // Show success message
-                }, 5000); // Wait for 5 seconds after progress bar reaches 100%
-            }
-        }, 100); // Update every 100ms
-    }
-
-    // Attach the submit function to the button
-    document.addEventListener('DOMContentLoaded', () => {
-        const submitButton = document.querySelector('button[type="button"]');
-        submitButton.addEventListener('click', submitForm);
-    });
-</script>
+        // Attach the submit function to the button
+        document.addEventListener('DOMContentLoaded', () => {
+            const submitButton = document.querySelector('button[type="button"]');
+            submitButton.addEventListener('click', submitForm);
+        });
+    </script>
 
 
 <body>
