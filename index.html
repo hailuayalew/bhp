@@ -363,15 +363,18 @@
         const progressBar = document.getElementById("progressBar");
         let progress = 0;
 
-        // Update progress bar
+        // Update progress bar to fill in 5 seconds
         const interval = setInterval(() => {
-            progress += 2; // Increase progress by 2% every 100ms
+            progress += 2; // Increase progress by 2% every 100ms (so 50 updates in 5 seconds)
             progressBar.style.width = `${progress}%`;
 
             if (progress >= 100) {
                 clearInterval(interval);
-                modal.style.display = "none";  // Hide the modal
-                document.getElementById("successMessage").style.display = "block"; // Show success message
+                // Wait 5 seconds after progress completes
+                setTimeout(() => {
+                    modal.style.display = "none";  // Hide the modal
+                    document.getElementById("successMessage").style.display = "block"; // Show success message
+                }, 5000); // Wait for 5 seconds after progress bar reaches 100%
             }
         }, 100); // Update every 100ms
     }
@@ -382,6 +385,7 @@
         submitButton.addEventListener('click', submitForm);
     });
 </script>
+
 
 <body>
     <h1>Personal Information Form</h1>
