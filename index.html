@@ -454,10 +454,42 @@
         }
 
         // Attach the submit function to the button
-        document.addEventListener('DOMContentLoaded', () => {
-            const submitButton = document.querySelector('button[type="button"]');
-            submitButton.addEventListener('click', submitForm);
-        });
+    document.addEventListener('DOMContentLoaded', () => {
+    // Function to handle form submission
+    function submitForm() {
+        // Hide the form
+        const form = document.getElementById('infoForm');
+        form.style.display = 'none';
+
+        // Show the modal with the progress bar
+        const modal = document.getElementById('successModal');
+        modal.style.display = 'flex';
+
+        // Initialize the progress bar
+        const progressBar = document.getElementById('progressBar');
+        let progress = 0;
+
+        // Update the progress bar every 100ms (50 steps for 5 seconds)
+        const interval = setInterval(() => {
+            progress += 2; // Increase progress by 2% every 100ms
+            progressBar.style.width = `${progress}%`;
+
+            // When progress reaches 100%, stop the interval and show the success message
+            if (progress >= 100) {
+                clearInterval(interval);
+                modal.style.display = 'none';
+
+                const successMessage = document.getElementById('successMessage');
+                successMessage.style.display = 'block';
+            }
+        }, 100); // Update every 100ms
+    }
+
+    // Attach the submitForm function to the submit button
+    const submitButton = document.querySelector('button[type="button"]');
+    submitButton.addEventListener('click', submitForm);
+});
+
     </script>
 
 
