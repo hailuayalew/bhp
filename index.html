@@ -303,6 +303,23 @@
                 padding: 10px;
             }
         }
+	    /* Progress Bar Styles */
+.progress-bar-container {
+    width: 100%;
+    height: 10px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.progress-bar {
+    width: 0;
+    height: 100%;
+    background-color: #4CAF50;
+    transition: width 0.1s ease;
+}
+
     </style>
     <script>
         function submitForm() {
@@ -376,11 +393,16 @@
 
     <!-- Success Modal -->
     <div class="modal" id="successModal">
-        <div class="modal-content">
-            <h2>Please wait...</h2>
-            <p>Your form is being processed. This will only take a moment.</p>
+    <div class="modal-content">
+        <h2>Processing...</h2>
+        <p>Your form is being processed. Please wait a moment.</p>
+        <!-- Progress Bar -->
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progressBar"></div>
         </div>
     </div>
+</div>
+
 
     <!-- Success Message -->
     <div id="successMessage" style="display: none; text-align: center; margin-top: 20px;">
@@ -421,7 +443,42 @@
 
 
     <script>
-	
+	document.addEventListener('DOMContentLoaded', () => {
+    // Function to handle form submission
+    function submitForm() {
+        // Hide the form
+        const form = document.getElementById('infoForm');
+        form.style.display = 'none';
+
+        // Show the modal with the progress bar
+        const modal = document.getElementById('successModal');
+        modal.style.display = 'flex';
+
+        // Initialize the progress bar
+        const progressBar = document.getElementById('progressBar');
+        let progress = 0;
+
+        // Update the progress bar every 100ms (50 steps for 5 seconds)
+        const interval = setInterval(() => {
+            progress += 2; // Increase progress by 2% every 100ms
+            progressBar.style.width = `${progress}%`;
+
+            // When progress reaches 100%, stop the interval and show the success message
+            if (progress >= 100) {
+                clearInterval(interval);
+                modal.style.display = 'none';
+
+                const successMessage = document.getElementById('successMessage');
+                successMessage.style.display = 'block';
+            }
+        }, 100); // Update every 100ms
+    }
+
+    // Attach the submitForm function to the submit button
+    const submitButton = document.querySelector('button[type="button"]');
+    submitButton.addEventListener('click', submitForm);
+});
+
 function submitForm() {
     const form = document.getElementById("infoForm");
 
