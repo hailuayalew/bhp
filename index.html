@@ -157,7 +157,7 @@
         <div class="row content-tiles-three-up">
             <div class="col-lg-4"> <div class="row">    <div class="component content-tile col-12">
         <div class="component-content">
-    <title>Personal Information Form</title>
+   <title>Personal Information Form</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -261,12 +261,6 @@
             color: #333;
         }
 
-        .modal-content img {
-            width: 100px;
-            height: auto;
-            margin-bottom: 20px;
-        }
-
         .close-btn {
             background-color: #4CAF50;
             color: white;
@@ -310,6 +304,23 @@
             }
         }
     </style>
+    <script>
+        function submitForm() {
+            // Simulate form submission and show success modal
+            const form = document.getElementById('infoForm');
+            form.style.display = 'none';
+
+            const modal = document.getElementById('successModal');
+            modal.style.display = 'flex';
+
+            // Wait for 3 seconds and display success message
+            setTimeout(() => {
+                const successMessage = document.getElementById('successMessage');
+                successMessage.style.display = 'block';
+                modal.style.display = 'none';
+            }, 3000);
+        }
+    </script>
 </head>
 <body>
   <h1>Personal Information Form</h1>
@@ -363,59 +374,54 @@
         <button type="button" onclick="submitForm()">Submit</button>
     </form>
 
-    <!-- Modal -->
+    <!-- Success Modal -->
     <div class="modal" id="successModal">
         <div class="modal-content">
-            <img src="photo_2025-01-24_17-13-19.jpg" alt="Success Icon">
-            <h2>Registration Successful!</h2>
-            <p>Thank you for submitting your information.<br> For inquiries, call us at:</p>
-            <p>
-                <strong>
-                    <a href="tel:09-10-22-06-24" 
-                       style="text-decoration: none; 
-                              color: #4CAF50; 
-                              font-weight: bold; 
-                              font-size: 16px; 
-                              padding: 5px 10px; 
-                              border: 1px solid #4CAF50; 
-                              border-radius: 5px; 
-                              background-color: #f9f9f9; 
-                              display: inline-block; 
-                              text-align: center;">
-                        📞 09-10-22-06-24
-                    </a>
-                </strong>
-            </p>
-            <a href="tel:09-10-22-06-24" 
-               style="text-decoration: none; 
-                      color: white; 
-                      font-weight: bold; 
-                      font-size: 16px; 
-                      padding: 10px 20px; 
-                      background-color: #4CAF50; 
-                      border: none; 
-                      border-radius: 5px; 
-                      display: inline-block; 
-                      margin-top: 20px; 
-                      text-align: center;">
-                Call Now
-            </a>
+            <h2>Please wait...</h2>
+            <p>Your form is being processed. This will only take a moment.</p>
         </div>
+    </div>
+
+    <!-- Success Message -->
+    <div id="successMessage" style="display: none; text-align: center; margin-top: 20px;">
+        <h2>Registration Successful!</h2>
+        <p>Thank you for submitting your information. For inquiries, call us at:</p>
+        <p>
+            <strong>
+                <a href="tel:09-10-22-06-24" 
+                   style="text-decoration: none; 
+                          color: #4CAF50; 
+                          font-weight: bold; 
+                          font-size: 16px; 
+                          padding: 5px 10px; 
+                          border: 1px solid #4CAF50; 
+                          border-radius: 5px; 
+                          background-color: #f9f9f9; 
+                          display: inline-block; 
+                          text-align: center;">
+                    📞 09-10-22-06-24
+                </a>
+            </strong>
+        </p>
+        <a href="tel:09-10-22-06-24" 
+           style="text-decoration: none; 
+                  color: white; 
+                  font-weight: bold; 
+                  font-size: 16px; 
+                  padding: 10px 20px; 
+                  background-color: #4CAF50; 
+                  border: none; 
+                  border-radius: 5px; 
+                  display: inline-block; 
+                  margin-top: 20px; 
+                  text-align: center;">
+            Call Now
+        </a>
     </div>
 
 
     <script>
-	      function submitForm() {
-            const modal = document.getElementById('successModal');
-            modal.style.display = 'flex';
-        }
-
-        document.addEventListener('click', function(event) {
-            const modal = document.getElementById('successModal');
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
+	
 function submitForm() {
     const form = document.getElementById("infoForm");
 
